@@ -1,0 +1,125 @@
+@use "../utils" as *;
+
+.generator {
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    margin-top: 2rem;
+
+    .container {
+        max-width: 70rem;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    &__canvas {
+        flex: 1 1 22rem;
+        max-width: 30rem;
+        margin: 0 auto;
+        position: relative;
+
+        canvas {
+            width: 100%;
+            aspect-ratio: 4/5;
+            display: block;
+            outline: 1px solid gray;
+            border-radius: 0.3rem;
+        }
+    }
+
+    .steps {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__step {
+            @include flex();
+            gap: 0.5rem;
+            color: #161c2d;
+
+            &.done {
+                color: green;
+            }
+
+            &:last-child {
+                font-family: gilroy-bold;
+                font-size: 1.2rem;
+                
+            }
+        }
+    }
+
+    &__actions {
+        flex: 1 1 22rem;
+    }
+
+    &__input {
+        width: 100%;
+
+        label {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+            display: block;
+        }
+
+        input {
+            border-radius: 0.2rem;
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            transition: outline 1.4s ease-in-out;
+            outline: 1px solid #161c2d;
+            &::placeholder {
+                color: gray;
+            }
+
+            &:focus {
+                transition: outline 0.4s ease-in-out;
+                outline: 2px solid;
+            }
+        }
+    }
+
+    &__buttons {
+        @include flex($justify: center);
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+        .button {
+            flex: 1 1 0;
+        }
+
+        .button:first-child {
+            flex-basis: 100%;
+        }
+    }
+
+    @media (width < 468px) {
+        padding: 2rem 1.5rem 1rem 1.5rem;
+        margin-top: 0rem;
+        .container {
+            padding: 0rem;
+        }
+
+        &__actions {
+        }
+    }
+
+    @media (width < 320px) {
+        padding: 1rem;
+        .container {
+            .button {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+        }
+    }
+}

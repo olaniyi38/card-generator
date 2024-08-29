@@ -1,0 +1,46 @@
+.button {
+    background: #161c2d;
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0.5rem 2rem;
+    text-transform: capitalize;
+    transition: 500ms;
+
+    &:disabled {
+        background: gray;
+
+        &:hover {
+            cursor: not-allowed;
+            background: gray;
+            color: white;
+            outline: none;
+        }
+    }
+
+    &:hover {
+        background: white;
+        color: #161c2d;
+        outline: 1px solid #161c2d;
+    }
+
+    &--inverted {
+        background: white;
+        color: #161c2d;
+        outline: 1px solid;
+
+        &:hover {
+            background: #161c2d;
+            color: white;
+            
+        }
+
+        &:disabled {
+            border: none;
+            color: white;
+        }
+    }
+
+    @media (width <= 400px) {
+        padding: 0.5rem 1rem;
+    }
+}

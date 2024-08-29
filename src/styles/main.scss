@@ -1,0 +1,29 @@
+@use "utils" as *;
+@use "base";
+@use "layout";
+@use "components";
+@use "pages";
+
+@font-face {
+       font-family: "gilroy-bold";
+       font-style: normal;
+       font-weight: 700;
+       font-stretch: normal;
+       src: url(/src/assets/fonts/Gilroy-Bold.ttf) format("truetype");
+       font-display: swap;
+   }
+
+   @font-face {
+          font-family: "gilroy-mid";
+          font-style: normal;
+          font-weight: 400;
+          font-stretch: normal;
+          src: url(/src/assets/fonts/Gilroy-Medium.ttf) format("truetype");
+          font-display: swap;
+      }
+
+   
+body {
+    min-height: 100vh;
+    font-family: "gilroy-mid";
+}
