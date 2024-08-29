@@ -57,7 +57,7 @@ const ImageSelector: FC<Props> = ({ isActive, selectedImageURL, setSelectedImage
               fetchFn();
             }}
           >
-            {error === null ? "Next" : "Retry"}
+            {error === null ? "More" : "Retry"}
           </button>
 
           <Button className="button" inverted onClick={() => closeSelector()}>
