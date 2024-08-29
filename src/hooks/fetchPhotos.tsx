@@ -9,7 +9,7 @@ type FetchState = {
 };
 
 const unsplash = createApi({
-  accessKey: import.meta.env.VITE_ACCESS_KEY,
+  accessKey: import.meta.env.VITE_APP_ACCESS_KEY,
 });
 
 function useFetchPhotos() {
