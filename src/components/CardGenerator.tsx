@@ -26,7 +26,7 @@ const CardGenerator: FC<Props> = ({ imageURL, openSelector }) => {
         image.onload = () => {
           //draw image onto canvas
           ctx.drawImage(image, 0, 0, canvas.width, canvas.height );
-          ctx.font = "bold 5rem sans-serif";
+          ctx.font = "bold 4.5rem sans-serif";
           ctx.textAlign = "center";
           ctx.fillStyle = "white";
           //embed text
