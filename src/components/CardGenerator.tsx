@@ -14,6 +14,13 @@ const CardGenerator: FC<Props> = ({ imageURL, openSelector }) => {
   const [name, setName] = useState("");
   const [hasGenerated, setHasGenerated] = useState(false);
 
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (canvas) {
+      adjustCanvas(canvas);
+    }
+  }, []);
+
   function createCard(name: string) {
     const canvas = canvasRef.current;
     if (canvas !== null) {
@@ -25,8 +32,8 @@ const CardGenerator: FC<Props> = ({ imageURL, openSelector }) => {
         image.src = imageURL;
         image.onload = () => {
           //draw image onto canvas
-          ctx.drawImage(image, 0, 0, canvas.width, canvas.height );
-          ctx.font = "bold 4.5rem sans-serif";
+          ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+          ctx.font = `bold 4rem sans-serif`;
           ctx.textAlign = "center";
           ctx.fillStyle = "white";
           //embed text
@@ -37,13 +44,6 @@ const CardGenerator: FC<Props> = ({ imageURL, openSelector }) => {
       }
     }
   }
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (canvas) {
-      adjustCanvas(canvas);
-    }
-  }, []);
 
   function download() {
     const canvas = canvasRef.current;
