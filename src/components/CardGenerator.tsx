@@ -25,8 +25,8 @@ const CardGenerator: FC<Props> = ({ imageURL, openSelector }) => {
         image.src = imageURL;
         image.onload = () => {
           //draw image onto canvas
-          ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-          ctx.font = "bold 70px sans-serif";
+          ctx.drawImage(image, 0, 0, canvas.width, canvas.height );
+          ctx.font = "bold 5rem sans-serif";
           ctx.textAlign = "center";
           ctx.fillStyle = "white";
           //embed text
@@ -77,7 +77,7 @@ const CardGenerator: FC<Props> = ({ imageURL, openSelector }) => {
             <Button inverted disabled={name == "" || imageURL == null} onClick={() => createCard(name)}>
               Generate Card
             </Button>
-            <Button disabled={name == "" || imageURL == null} onClick={() => download()}>
+            <Button disabled={!hasGenerated} onClick={() => download()}>
               Download
             </Button>
             <Button
