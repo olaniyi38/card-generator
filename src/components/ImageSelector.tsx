@@ -2,7 +2,6 @@ import { FC, SetStateAction, Dispatch, useEffect } from "react";
 import useFetchPhotos from "../hooks/fetchPhotos";
 import Loader from "./Loader";
 import Button from "./Button";
-import testData from "../data.json";
 
 type Props = {
   setSelectedImage: Dispatch<SetStateAction<string | null>>;
@@ -17,9 +16,9 @@ const ImageSelector: FC<Props> = ({ isActive, selectedImageURL, setSelectedImage
     state: { photos, isLoading, error },
   } = useFetchPhotos();
 
-  // useEffect(() => {
-  //   fetchFn();
-  // }, []);
+  useEffect(() => {
+    fetchFn();
+  }, []);
 
    return (
     <div
@@ -34,7 +33,7 @@ const ImageSelector: FC<Props> = ({ isActive, selectedImageURL, setSelectedImage
         {error && !isLoading && <p className="error">error: {error}</p>}
         <div className="selector__grid">
           {isLoading && <Loader />}
-          {testData.map((p) => (
+          {photos.map((p) => (
             <div
               className={`selector__img-container  ${selectedImageURL ? selectedImageURL === p.urls.regular && "active" : ""}`}
             >
