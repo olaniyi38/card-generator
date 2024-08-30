@@ -21,6 +21,34 @@ const CardGenerator: FC<Props> = ({ imageURL, openSelector }) => {
     }
   }, []);
 
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    //draw image automatically for s
+    if (canvas && imageURL !== null && hasGenerated) {
+      const image = new Image();
+      image.crossOrigin = "anonymous";
+      image.src = imageURL;
+      drawImage(canvas, image);
+    }
+  }, [imageURL]);
+
+  function drawImage(canvas: HTMLCanvasElement, image: HTMLImageElement) {
+    //draw image onto canvas
+    const ctx = canvas.getContext("2d");
+    if (ctx !== null) {
+      image.onload = () => {
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        ctx.font = `bold 4rem sans-serif`;
+        ctx.textAlign = "center";
+        ctx.fillStyle = "white";
+        //embed text
+        ctx.fillText("Thank You", canvas.width / 2, 120);
+        ctx.fillText(name.toUpperCase(), canvas.width / 2, canvas.height - 50);
+        setHasGenerated(true);
+      };
+    }
+  }
+
   function createCard(name: string) {
     const canvas = canvasRef.current;
     if (canvas !== null) {
