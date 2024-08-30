@@ -12,7 +12,7 @@ const Steps: FC<Props> = ({ imageURL, name }) => {
       <div className="container">
         <div className={`steps__step ${imageURL !== null ? "done" : ""}`}>
           <FaCheckCircle className="steps__check-svg" />
-          <span>Select an image below</span>
+          <span>Select an image</span>
         </div>
         <div className={`steps__step ${name !== "" ? "done" : ""}`}>
           <FaCheckCircle className="steps__check-svg" />
