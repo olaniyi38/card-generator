@@ -20,7 +20,7 @@ const ImageSelector: FC<Props> = ({ isActive, selectedImageURL, setSelectedImage
     fetchFn();
   }, []);
 
-  return (
+   return (
     <div
       onClick={(e) => {
         if (e.target === e.currentTarget) {
