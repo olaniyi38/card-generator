@@ -53,7 +53,6 @@ const ImageSelector: FC<Props> = ({ isActive, selectedImageURL, setSelectedImage
             className="button"
             disabled={isLoading}
             onClick={() => {
-              setSelectedImage(null);
               fetchFn();
             }}
           >
