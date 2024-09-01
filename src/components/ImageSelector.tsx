@@ -32,7 +32,7 @@ const ImageSelector: FC<Props> = ({ isActive, selectedImageURL, setSelectedImage
       <div className="container">
         {error && !isLoading && <p className="error">error: {error}</p>}
         <div className="selector__grid">
-          {isLoading && <Loader />}
+          {isLoading && <Loader full/>}
           {photos.map((p) => (
             <div
               className={`selector__img-container  ${selectedImageURL ? selectedImageURL === p.urls.regular && "active" : ""}`}

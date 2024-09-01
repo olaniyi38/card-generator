@@ -1,9 +1,14 @@
 import { FC } from "react";
 
-const Loader: FC = () => {
+type Props = {
+  type?: "shuriken" | "spinner";
+  full?: boolean;
+};
+
+const Loader: FC<Props> = ({ type = "shuriken", full = false }) => {
   return (
-    <div className="loader-container">
-      <div className="loader"></div>
+    <div className={`loader-container ${full ? "loader-container--full" : ""}`}>
+      <div className={`loader-${type}`}></div>
     </div>
   );
 };

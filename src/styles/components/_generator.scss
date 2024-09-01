@@ -15,7 +15,7 @@
     }
 
     &__canvas {
-        flex: 1 1 22rem;
+        flex: 1 0 22rem;
         max-width: 30rem;
         margin: 0 auto;
         position: relative;
@@ -59,7 +59,8 @@
     }
 
     &__actions {
-        flex: 1 1 22rem;
+        flex: 1 0 22rem;
+        
     }
 
     &__input {

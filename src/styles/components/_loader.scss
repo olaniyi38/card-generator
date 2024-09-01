@@ -1,12 +1,15 @@
 .loader-container {
-    background: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    z-index: 5;
-    border-radius: .5rem;
-    .loader {
+    &--full {
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        z-index: 5;
+        border-radius: 0.5rem;
+    }
+
+    .loader-shuriken {
         width: 3rem;
         aspect-ratio: 1;
         background: white;
@@ -23,11 +26,31 @@
         -webkit-mask: radial-gradient(circle 5px, #0000 90%, #000);
         animation: l1 1.5s infinite linear;
     }
-    
-    @media (width <= 500px) {
-    .loader{
-        width: 2rem;
+
+    .loader-spinner {
+        width: 1.5rem;
+
+        padding: 3px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background:  #161c2d;
+        --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+        -webkit-mask: var(--_m);
+        mask: var(--_m);
+        -webkit-mask-composite: source-out;
+        mask-composite: subtract;
+        animation: l3 1s infinite linear;
     }
+    @keyframes l3 {
+        to {
+            transform: rotate(1turn);
+        }
+    }
+
+    @media (width <= 500px) {
+        .loader {
+            width: 2rem;
+        }
     }
 }
 @keyframes l1 {

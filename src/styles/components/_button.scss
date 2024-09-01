@@ -1,3 +1,5 @@
+@use "../utils" as *;
+
 .button {
     background: #161c2d;
     color: white;
@@ -5,6 +7,7 @@
     padding: 0.5rem 2rem;
     text-transform: capitalize;
     transition: 500ms;
+    @include flex($justify: center);
 
     &:disabled {
         background: gray;
@@ -21,6 +24,10 @@
         background: white;
         color: #161c2d;
         outline: 1px solid #161c2d;
+
+        .loader-spinner {
+            background: #161c2d;
+        }
     }
 
     &--inverted {
@@ -31,7 +38,10 @@
         &:hover {
             background: #161c2d;
             color: white;
-            
+
+            .loader-spinner {
+                background: white;
+            }
         }
 
         &:disabled {
