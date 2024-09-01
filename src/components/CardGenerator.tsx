@@ -96,7 +96,11 @@ const CardGenerator: FC<Props> = ({ imageURL, openSelector }) => {
             />
           </div>
           <div className="generator__buttons">
-            <Button inverted disabled={name == "" || imageURL == null} onClick={() => createCard()}>
+            <Button
+              inverted
+              disabled={name == "" || imageURL == null}
+              onClick={() => !(status === "generating") && createCard()}
+            >
               {status === "generating" ? <Loader type="spinner" /> : " Generate Card"}
             </Button>
             <Button disabled={!(status === "generated")} onClick={() => download()}>
